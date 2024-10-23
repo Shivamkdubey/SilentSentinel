@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -145,6 +145,7 @@ namespace AutoMover
         {       
             IntPtr lHwnd = FindWindow("Shell_TrayWnd", null);
             SendMessage(lHwnd, WM_COMMAND, (IntPtr)MIN_ALL, IntPtr.Zero);
+            System.Threading.Thread.Sleep(500);
         }
         #endregion
 
@@ -226,13 +227,15 @@ namespace AutoMover
                 RestartAfterIdleState();
             }
         }
-        
+                
         private void RestartAfterIdleState()
         {
             MinimizeAllWindows();
-            System.Threading.Thread.Sleep(2000);
-            WakeUpScreen();
-            ToggleRunningState(null, null);
+            WakeUpScreen();     
+            Activate();
+            System.Threading.Thread.Sleep(500);
+            MinimizeAllWindows();
+            ToggleRunningState(null, null);     
         }
 
         private void ToggleRunningState(object sender, EventArgs e)
