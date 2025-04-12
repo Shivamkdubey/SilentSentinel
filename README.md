@@ -10,3 +10,4 @@ SilentSentinel is a tool that keeps your system active by automatically moving t
   - No need for manual start/stop — it intelligently manages itself based on user activity.
   
 SilentSentinel ensures that your system stays active without manual intervention, so you don't have to worry about interruptions or inactivity detection by third-party software.
+Can be used in server environments which needs to perform certain scheduled background actions, but needs to be kept awake until then.
